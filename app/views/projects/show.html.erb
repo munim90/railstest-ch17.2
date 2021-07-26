@@ -16,7 +16,6 @@
             <% if task.complete? %>
               <%= task.user.email %>
               <%= task.completed_at.to_s %>
-              <img src="<%= task.user.avatar_url %>" />
             <% end %>
         </td>
         <td>

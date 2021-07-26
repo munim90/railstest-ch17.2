@@ -1,16 +1,20 @@
 ENV['RAILS_ENV'] ||= 'test'
-require_relative '../config/environment'
+require File.expand_path("../../config/environment", __FILE__)
 require 'rails/test_help'
 require "mocha/minitest"
+require "minitest/rails"
+require "capybara/rails"
+require "capybara/rspec/matchers"
+require "minitest/rails/capybara"
 
-class ActiveSupport::TestCase
-  # Run tests in parallel with specified workers
-  parallelize(workers: :number_of_processors)
+module ActiveSupport
+  class TestCase
+    # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical
+    # order.
+    fixtures :all
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-
-  # Add more helper methods to be used by all tests here...
+    # Add more helper methods to be used by all tests here...
+  end
 end
 
 def assert_select_string(string, *selectors, &block)
@@ -18,6 +22,7 @@ def assert_select_string(string, *selectors, &block)
   assert_select(doc_root, *selectors, &block)
 end
 
+#
 module ActionController
   class TestCase
     include Devise::Test::ControllerHelpers
@@ -29,9 +34,4 @@ module ActionDispatch
     include Devise::Test::IntegrationHelpers
   end
 end
-
-VCR.configure do |c|
-  c.cassette_library_dir = "test/vcr"
-  c.hook_into :webmock
-  c.ignore_localhost = true
-end
+#
