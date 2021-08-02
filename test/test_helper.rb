@@ -1,11 +1,6 @@
-ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
-require 'rails/test_help'
-require "mocha/minitest"
-require "minitest/rails"
-require "capybara/rails"
-require "capybara/rspec/matchers"
-require "minitest/rails/capybara"
+require "rails/test_help"
+require "mocha/mini_test"
 
 module ActiveSupport
   class TestCase
@@ -33,5 +28,13 @@ module ActionDispatch
   class IntegrationTest
     include Devise::Test::IntegrationHelpers
   end
+end
+#
+
+#
+VCR.configure do |c|
+  c.cassette_library_dir = "test/vcr"
+  c.hook_into :webmock
+  c.ignore_localhost = true
 end
 #
