@@ -13,12 +13,14 @@ class CreatesProject
     @success
   end
 
+  # 
   def build
     self.project = Project.new(name: name)
     project.tasks = convert_string_to_tasks
-    project.users = users
+    project.add_users(users)
     project
   end
+  # 
 
   def create
     build

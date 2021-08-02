@@ -1,4 +1,9 @@
-require "rails_helper"
+require "active_record_spec_helper"
+require_relative "../../app/models/concerns/sizeable.rb"
+require_relative "../../app/models/project.rb"
+require_relative "../../app/models/task.rb"
+require_relative "../support/size_matcher.rb"
+require_relative "../shared/size_group.rb"
 
 RSpec.describe Project do
 
