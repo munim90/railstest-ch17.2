@@ -31,7 +31,7 @@ gem 'mimemagic', '~> 0.3.10'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "devise"
 gem "capistrano-rails", group: :development
-gem "minitest"
+#gem "minitest"
 gem 'twitter'
 gem "awesome_print"
 
@@ -68,8 +68,9 @@ end
 group :test do
   gem "vcr"
   gem "webmock"
-  gem "minitest-rails"
+  #gem "minitest-rails"
   gem "minitest-bisect"
+  gem "minitest-line"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

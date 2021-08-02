@@ -211,9 +211,8 @@ GEM
     minitest-bisect (1.5.1)
       minitest-server (~> 1.0)
       path_expander (~> 1.1)
-    minitest-rails (6.0.1)
-      minitest (~> 5.10)
-      railties (~> 6.0.0)
+    minitest-line (0.6.5)
+      minitest (~> 5.0)
     minitest-server (1.0.6)
       minitest (~> 5.0)
     mocha (1.13.0)
@@ -424,9 +423,8 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen
   mimemagic (~> 0.3.10)
-  minitest
   minitest-bisect
-  minitest-rails
+  minitest-line
   mocha
   pry-byebug
   pry-rails
